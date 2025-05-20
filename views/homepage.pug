@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title= `${title}`
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    .container
+      .header-flex
+        h1 Cars Custom Object
+        a(href="/update-cobj") Add to this table
+      
+      if data && data.length > 0
+        table
+          thead
+            tr
+              th Manufacturer
+              th Name
+              th Year
+              th Color
+          tbody
+            each car in data
+              tr
+                td= car.properties.manufacturer || 'N/A'
+                td= car.properties.name || 'N/A'
+                td= car.properties.year || 'N/A'
+                td= car.properties.color || 'N/A'
+      else
+        p No car records found. Click "Add to this table" to create a new car record.
